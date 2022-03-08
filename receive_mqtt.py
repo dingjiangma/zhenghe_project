@@ -1,11 +1,11 @@
 import paho.mqtt.client as mqtt
 from paho.mqtt.client import Client
 import pymysql
+from trans_mqtt_data import trans
 data =''
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code: " + str(rc))
-
 
 
 def on_message(client, userdata, msg):
@@ -18,7 +18,7 @@ def on_message(client, userdata, msg):
         print("数据库连接 成功")
     except:
         print("数据库连接失败")
-    chang=data.spilt()
+    chang=trans().tran(data)
     change=[]
     change.append(int(chang[0]))
     change.append(int(chang[1]))
@@ -44,7 +44,7 @@ def on_message(client, userdata, msg):
         # 发生错误时回滚
         db.rollback()
         print("数据库未修改，请再尝试")
-    print(data)
+    print(change)
 class mqtt_rec(object):
     def recive(self,theme,qos,net,port,name,password):
         client: Client = mqtt.Client()
@@ -56,4 +56,3 @@ class mqtt_rec(object):
         client.loop_forever() # 保持连接
 if __name__ == '__main__':
     mqtt_rec().recive('zwl',0,'127.0.0.1',1883,'zwl','123456')
-    print(data)
