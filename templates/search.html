@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″ />
+    <title>电力情况查询</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style type="text/css">
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+        html,body{
+            height: 100%;
+        }
+        body{
+            background-image: url("static/image/search.jpg");
+            background-repeat: no-repeat ;
+            background-size: 100% 100%;
+        }
+        input{
+            border: 1px solid #ccc;
+            width: 300px;
+            padding: 7px 0px;
+            border-radius: 3px;
+            padding-left:5px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+        }
+        input:focus{
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+        }
+        .btns { 
+            width:143px; height:40px; background:url("static/image/bg11.jpg") no-repeat left top; color:#FFF; 
+        } 
+
+        form{
+            width: 100%;
+            height: 100%;            
+            display: -webkit-flex;
+            display: flex;
+            align-items:center;
+            flex-direction: column;
+        } 
+        div{
+            width: 100%;
+            height: 100%;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+        }
+        div#div1{
+            height: 10%;
+            width: 100%;
+            display: -webkit-flex;
+            display: flex;
+            align-items:center;
+        }
+        div#div2{
+            height: 60%;
+            width: 100%;
+            display: -webkit-flex;
+            display: flex;
+            align-items:center;
+            flex-direction: column;
+        }
+        div#div3{
+            height: 30%;
+            width: 100%;
+            display: -webkit-flex;
+            display: flex;
+            align-items:center;
+            flex-direction: column;
+        }
+        p{
+        }
+        p.p1{
+            width: 500px;
+            text-align: center;
+            word-break: break-all;
+            color: #000000;
+            font-style: normal
+        }
+        p.p2{
+            width: 500px;
+            text-align: center;
+            word-break: break-all;
+            color: #59595f;
+            font-style: normal
+        }
+        a{
+        }
+        a.a1{
+            color:#b100b1 ;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2">
+        <h1>西北地区电力分布</h1><br><br><br>
+        <br>
+        <p class="p1">声明：本页面查询西北地区用电情况仅供参考</p>
+        <br>
+        <p class="p1">查询方式说明</p>
+        <p class="p1">在文本框中输入相对应的地区编号查询</p><br>
+        
+        <a class="a1" href="static/ex_1.html">地区编号列表</a><br>
+        <a class="a1" href="static/ex_2.html">查询结果展示</a>
+    </div>
+    <div id="div3">
+    <form action="http://localhost:5000/result" method = "POST">
+        <input type="text" placeholder="请输入需要对应的参数编号" name="addr"/>
+        <input type="datetime-local" name="startdate"value="2022-03-04T08:30"/>
+        <input type="datetime-local" name="enddate"value="2022-03-08T08:30" />
+        <br />
+        <input type="submit" class="btns"  value="查询结果" />
+        <br />
+        <p class="p2">有问题请咨询</p>
+        <p class="p2">2554410413@qq.com</p><br>
+    
+    </form>
+</div>
+</body>
+</html>
