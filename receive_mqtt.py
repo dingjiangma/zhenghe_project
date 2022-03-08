@@ -55,4 +55,4 @@ class mqtt_rec(object):
         client.subscribe(theme, qos=qos)
         client.loop_forever() # 保持连接
 if __name__ == '__main__':
-    mqtt_rec().recive('zwl',0,'127.0.0.1',1883,'zwl','123456')
+    mqtt_rec().recive('zwl',0,'broker-cn.emqx.io',1883,'zwl','123456')
