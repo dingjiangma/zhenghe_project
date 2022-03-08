@@ -6,6 +6,7 @@ import flask
 from flask import Flask, Response,request
 from flask import render_template
 from mysql import Mysql
+import threading
 class DateEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj,datetime.datetime):
@@ -48,5 +49,13 @@ def index2():
         time_change.append(tim.strftime("%Y-%m-%d %H:%M:%S"))
     print(time_change)
     return render_template('result.html',value=value,time=time_change)
+def web():
+    app.run(debug=True,use_reloader=False)
+def mqtt():
+    mqtt_rec().recive('zwl', 0, 'broker-cn.emqx.io', 1883, 'zwl', '123456')
 if __name__ == '__main__':
-    app.run(debug=True)	#debug=True发生错误时会返回发生错误的地方
+    sing_thread = threading.Thread(target=web)
+    song_thread = threading.Thread(target=mqtt)
+    sing_thread.start()
+    song_thread.start()
+    	#debug=True发生错误时会返回发生错误的地方
