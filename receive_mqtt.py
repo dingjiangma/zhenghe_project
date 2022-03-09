@@ -2,7 +2,9 @@ import paho.mqtt.client as mqtt
 from paho.mqtt.client import Client
 import pymysql
 from trans_mqtt_data import trans
-data =''
+
+data = ''
+
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code: " + str(rc))
@@ -11,15 +13,15 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print(msg.topic + "的内容是" + msg.payload.decode())
     global data
-    data=msg.payload.decode()
+    data = msg.payload.decode()
     try:
         db = pymysql.connect(host='localhost', user='root', password='123456', database='int30')
         cursor = db.cursor()
         print("数据库连接 成功")
     except:
         print("数据库连接失败")
-    chang=trans().tran(data)
-    change=[]
+    chang = trans().tran(data)
+    change = []
     change.append(int(chang[0]))
     change.append(int(chang[1]))
     change.append(float(chang[2]))
@@ -45,14 +47,18 @@ def on_message(client, userdata, msg):
         db.rollback()
         print("数据库未修改，请再尝试")
     print(change)
+
+
 class mqtt_rec(object):
-    def recive(self,theme,qos,net,port,name,password):
+    def recive(self, theme, qos, net, port, name, password):
         client: Client = mqtt.Client()
         client.on_connect = on_connect
         client.on_message = on_message
-        client.connect(net, port, 600) # 600为keepalive的时间间隔
+        client.connect(net, port, 600)  # 600为keepalive的时间间隔
         client.username_pw_set(name, password)
         client.subscribe(theme, qos=qos)
-        client.loop_forever() # 保持连接
+        client.loop_forever()  # 保持连接
+
+
 if __name__ == '__main__':
-    mqtt_rec().recive('zwl',0,'broker-cn.emqx.io',1883,'zwl','123456')
+    mqtt_rec().recive('zwl', 0, 'broker-cn.emqx.io', 1883, 'zwl', '123456')
