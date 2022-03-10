@@ -46,15 +46,15 @@ def index2():
     value = []
     for i in range(0, len(iit)):
         value.append(items[i][0])
-    print(value)
+    # print(value)
     time = []
     for i in range(0, len(iit)):
         time.append(items[i][1])
-    print(time)
+    # print(time)
     time_change = []
     for tim in time:
         time_change.append(tim.strftime("%Y-%m-%d %H:%M:%S"))
-    print(time_change)
+    # print(time_change)
     return render_template('result.html', value=value, time=time_change)
 
 
