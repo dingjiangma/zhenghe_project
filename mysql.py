@@ -18,7 +18,22 @@ class Mysql(object):
         self.cursor.execute(sql, data)
         items = self.cursor.fetchall()  # 接收全部的返回结果行
         return items
-
+    def trans_value(self,items):
+        iit=list(items)
+        value = []
+        for i in range(0, len(iit)):
+            value.append(items[i][0])
+        return(value)
+    def trans_time(self,items):
+        iit=list(items)
+        time = []
+        for i in range(0, len(iit)):
+            time.append(items[i][1])
+        time_change = []
+        for tim in time:
+            time_change.append(tim.strftime("%Y-%m-%d %H:%M:%S"))
+        return(time_change)
+        
 
 if __name__ == '__main__':
     hihi = Mysql()

@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Admin Template : Insight</title>
+	<!-- Bootstrap Styles-->
+    <link href="static/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="static/assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="static/assets/css/custom-styles.css" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+   <link rel="stylesheet" href="static/assets/js/Lightweight-Chart/cssCharts.css">
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="((url_for('index4')))"><strong>管理中心</strong></a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                <!-- /.dropdown -->
+                <!-- /.dropdown -->
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="((url_for('index4')))"><i class="fa fa-dashboard"></i>首页</a>
+                    </li>
+                    <li>
+                        <a href="((url_for('index_search')))" class="active-menu"><i class="fa fa-desktop"></i>数据查询</a>
+                    </li>
+					<li>
+                        <a href="((url_for('index3')))"><i class="fa fa-bar-chart-o"></i>后台数据</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+		  <div class="header"> 
+                        <h1 class="page-header">
+                           数据查询 <small>支持自定义查看后台数据</small>
+                        </h1>
+						<ol class="breadcrumb">
+					  <li><a href="#">HOME</a></li>
+					  <li><a href="#">DATA QUERY</a></li>
+					  <li class="active">Page</li>
+					</ol> 
+									
+		</div>
+            <div id="page-inner"> 
+				<div class="row">
+                        <div class="col-md-4 col-sm-12 col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    查询数据
+                                </div>
+                                <div class="panel-body">
+                                    <div class="alert alert-info">
+                                        <strong>请注意！</strong>输入下表全部所需数据后方可查找
+                                    </div>
+                                    <form action="http://localhost:5000/result" method = "POST">
+                                        <label>电表编号</label>
+                                        <input class="form-control" type="text" placeholder="请输入需要对应的编号"value="0" name="id"/>
+                                        <br>
+                                        <label>查询地址</label>
+                                        <input class="form-control" type="text"list="typelist" placeholder="请输入需要对应的地址"name="addr"/>
+                                        <datalist id="typelist">
+                                            <option>0</option>
+                                            <option>8</option>
+                                            <option>16</option>
+                                            <option>12</option>
+                                            <option>26</option>
+                                            <option>30</option>
+                                            <option>34</option>
+                                            <option>38</option>
+                                            <option>42</option>
+                                            <option>46</option>
+                                        </datalist>
+                                        <br>
+                                        <label>起始时间</label>
+                                        <input class="form-control"type="datetime-local" name="startdate"value="2022-03-04T08:30"/>
+                                        <br>
+                                        <label>终止时间</label>
+                                        <input class="form-control"type="datetime-local" name="enddate"value="2022-03-18T08:30" />
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <input class="btn btn-primary " type="submit"  value="&nbsp查询结果&nbsp" />
+                                        <button type="reset" class="btn btn-default pull-right">刷新默认值</button>
+                                    </form> 
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+    
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    支持查询的数据编号
+                                </div> 
+                                <div class="panel-body">
+                                    <div class="alert alert-info">
+                                        <strong>请检查表格：</strong>当前版本数据库支持的查询项目
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ADDRESS</th>
+                                                    <th>UNIT</th>
+                                                    <th>NAME</th>
+                                                    <th>REMARK</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>0</td>
+                                                    <td>V/100</td>
+                                                    <td>UA1</td>
+                                                    <td>初级A相电压</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td>V/100</td>
+                                                    <td>UA2</td>
+                                                    <td>次级A相电压</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>16</td>
+                                                    <td>A/1000</td>
+                                                    <td>IA1</td>
+                                                    <td>初级A相电流</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>21</td>
+                                                    <td>A/1000</td>
+                                                    <td>IA2</td>
+                                                    <td>次级A相电流</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>26</td>
+                                                    <td>kW/1000</td>
+                                                    <td>PA1</td>
+                                                    <td>初级A相有功功率</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>30</td>
+                                                    <td>kvar/1000</td>
+                                                    <td>QA1</td>
+                                                    <td>初级A相无功功率</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>34</td>
+                                                    <td>KVA/1000</td>
+                                                    <td>SA1</td>
+                                                    <td>初级A相视在功率</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>38</td>
+                                                    <td>kW/1000</td>
+                                                    <td>PA2</td>
+                                                    <td>次级A相有功功率</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>42</td>
+                                                    <td>kvar/1000</td>
+                                                    <td>QA2</td>
+                                                    <td>次级A相无功功率</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>46</td>
+                                                    <td>KVA/1000</td>
+                                                    <td>SA2</td>
+                                                    <td>次级A相视在功率</td>
+                                                </tr>
+    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+
+
+                </div> 							
+								
+                <!-- /. ROW  -->
+                 <!-- /. ROW  -->
+                <!-- /. ROW  -->
+                <footer><p>All right reserved. Made by: <a href="#">Zhang Wenlong</a></p>
+				</div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="static/assets/js/jquery-1.10.2.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="static/assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="static/assets/js/jquery.metisMenu.js"></script>
+      <!-- Custom Js -->
+    <script src="static/assets/js/custom-scripts.js"></script>
+ 
+</body>
+</html>
