@@ -1,548 +1,550 @@
-﻿
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-      <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap Admin Template : Bluebox</title>
-	<!-- Bootstrap Styles-->
-    <link href="static/assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FontAwesome Styles-->
-    <link href="static/assets/css/font-awesome.css" rel="stylesheet" />
-     <!-- Morris Chart Styles-->
-    <link href="static/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-        <!-- Custom Styles-->
-    <link href="static/assets/css/custom-styles.css" rel="stylesheet" />
-     <!-- Google Fonts-->
-     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap Admin Template : Bluebox</title>
+  <!-- Bootstrap Styles-->
+  <link href="static/assets/css/bootstrap.css" rel="stylesheet" />
+  <!-- FontAwesome Styles-->
+  <link href="static/assets/css/font-awesome.css" rel="stylesheet" />
+  <!-- Morris Chart Styles-->
+  <link href="static/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+  <!-- Custom Styles-->
+  <link href="static/assets/css/custom-styles.css" rel="stylesheet" />
+  <!-- Google Fonts-->
+  <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
+
 <body>
 
-    <div id="wrapper">
-        <nav class="navbar navbar-default top-navbar" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><strong>管理中心</strong></a>
-            </div>
+  <div id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><strong>管理中心</strong></a>
+      </div>
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-        </nav>
-        <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
+      <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            </li>
+            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          </ul>
+          <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+      </ul>
+    </nav>
+    <!--/. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+      <div class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
 
-                    <li>
-                        <a href="((url_for('index4')))"><i class="fa fa-dashboard"></i>首页</a>
-                    </li>
-                    <li>
-                        <a href="((url_for('index_search')))"><i class="fa fa-desktop"></i>数据查询</a>
-                    </li>
-					<li>
-                        <a href="((url_for('index3')))" class="active-menu"><i class="fa fa-bar-chart-o"></i>后台数据</a>
-                    </li>
-                </ul>
+          <li>
+            <a href="((url_for('index4')))"><i class="fa fa-dashboard"></i>首页</a>
+          </li>
+          <li>
+            <a href="((url_for('index_search')))"><i class="fa fa-desktop"></i>数据查询</a>
+          </li>
+          <li>
+            <a href="((url_for('index3')))" class="active-menu"><i class="fa fa-bar-chart-o"></i>后台数据</a>
+          </li>
+        </ul>
 
-            </div>
+      </div>
 
-        </nav>
-        <!-- /. NAV SIDE  -->
-        <div id="page-wrapper">
-		  <div class="header"> 
-                        <h1 class="page-header">
-                             后台数据 <small>查看电路运行情况</small>
-                        </h1>
-						<ol class="breadcrumb">
-					  <li><a href="#">HOME</a></li>
-					  <li><a href="#">DATA CHAERTS</a></li>
-					  <li class="active">Page</li>
-					</ol> 
-									
-		</div>
-            <div id="page-inner"> 
-             
-                <div class="row"> 
-                    
-                      
-                  <div class="col-md-6 col-sm-12 col-xs-12">                     
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                            功率平均值
-                      </div>
-                      <div class="panel-body">
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+      <div class="header">
+        <h1 class="page-header">
+          后台数据 <small>查看电路运行情况</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">DATA CHAERTS</a></li>
+          <li class="active">Page</li>
+        </ol>
 
-                            <div id="main2" style="width:100%;height:400px;"></div>
+      </div>
+      <div id="page-inner">
 
-                      </div>
-                    </div>            
-                </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">                     
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                            电流情况
-                        </div>
-                        <div class="panel-body">
-                            <div id="main3" style="width: 100%;height:400px;"></div>
-                        </div>
-                      </div>            
-                    </div>    
+        <div class="row">
+
+
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                功率平均值
               </div>
-              <div class="row"> 
-                    
-                      
-                <div class="col-md-12 col-sm-12 col-xs-12">                     
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                          初级功率情况
-                    </div>
-                    <div class="panel-body">
+              <div class="panel-body">
 
-                          <div id="main4" style="width:100%;height:600px;"></div>
+                <div id="main2" style="width:100%;height:400px;"></div>
 
-                    </div>
-                  </div>            
-              </div>  
+              </div>
             </div>
-                 <!-- /. ROW  -->
-                <div class="row">                     
-              
-                    <div class="col-md-12 col-sm-12 col-xs-12">                     
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            次级功率情况
-                        </div>
-                        <div class="panel-body">
-                            <div id="main" style="width: 100%;height:600px;"></div>
-                        </div>
-                    </div>                          
-                    </div>
-                 <!-- /. ROW  -->
-				 				<footer><p>All right reserved. Made by: <a href="#">Zhang Wenlong</a></p>
-				</div>
-             <!-- /. PAGE INNER  -->
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                电流情况
+              </div>
+              <div class="panel-body">
+                <div id="main3" style="width: 100%;height:400px;"></div>
+              </div>
             </div>
-         <!-- /. PAGE WRAPPER  -->
+          </div>
         </div>
-     <!-- /. WRAPPER  -->
+        <div class="row">
+
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                初级功率情况
+              </div>
+              <div class="panel-body">
+
+                <div id="main4" style="width:100%;height:600px;"></div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /. ROW  -->
+        <div class="row">
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                次级功率情况
+              </div>
+              <div class="panel-body">
+                <div id="main" style="width: 100%;height:600px;"></div>
+              </div>
+            </div>
+          </div>
+          <!-- /. ROW  -->
+          <footer>
+            <p>All right reserved. Made by: <a href="#">Zhang Wenlong</a></p>
+        </div>
+        <!-- /. PAGE INNER  -->
+      </div>
+      <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="static/assets/js/jquery-1.10.2.js"></script>
-      <!-- Bootstrap Js -->
+    <!-- Bootstrap Js -->
     <script src="static/assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
     <script src="static/assets/js/jquery.metisMenu.js"></script>
-     <!-- Morris Chart Js -->
-     <script src="static/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="static/assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="static/assets/js/morris/morris.js"></script>
-      <!-- Custom Js -->
+    <!-- Custom Js -->
     <script src="static/assets/js/custom-scripts.js"></script>
     <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main'));
-        var pa2=((pa2|tojson));
-        var qa2=((qa2|tojson));
-        var time_all=((time_all|tojson));
-        // 指定图表的配置项和数据
-        option = {
-                  title: {
-                    text: '次级侧功率情况',
-                    left: 'center'
-                  },
-                  grid: {
-                    bottom: 80
-                  },
-                  toolbox: {
-                    feature: {
-                      dataZoom: {
-                        yAxisIndex: 'none'
-                      },
-                      restore: {},
-                      saveAsImage: {}
-                    }
-                  },
-                  tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                      type: 'cross',
-                      animation: false,
-                      label: {
-                        backgroundColor: '#505765'
-                      }
-                    }
-                  },
-                  legend: {
-                    data: ['有功功率', '无功功率'],
-                    left: 10
-                  },
-                  dataZoom: [
-                    {
-                      show: true,
-                      realtime: true,
-                      start: 65,
-                      end: 85
-                    },
-                    {
-                      type: 'inside',
-                      realtime: true,
-                      start: 65,
-                      end: 85
-                    }
-                  ],
-                  xAxis: [
-                    {
-                      type: 'category',
-                      boundaryGap: false,
-                      axisLine: { onZero: false },
-                      // prettier-ignore
-                      data: time_all
-                    }
-                  ],
-                  yAxis: [
-                  {
-                      name: 'kW/1000',
-                      type: 'value',
-                      max:250
-                    },
-                    {
-                      name: 'kvar/1000',
-                      nameLocation: 'start',
-                      alignTicks: true,
-                      type: 'value',
-                      inverse: true,
-                      max:250
-                    },
-                  ],
-                  series: [
-                    {
-                      name: '有功功率',
-                      type: 'line',
-                      color:'#0866c6',
-                      areaStyle: {},
-                      lineStyle: {
-                        width: 1
-                      },
-                      emphasis: {
-                        focus: 'series'
-                      },
-                      // prettier-ignore
-                      data: pa2
-                    },
-                    {
-                      name: '无功功率',
-                      type: 'line',
-                      color:'#f9243f',
-                      yAxisIndex: 1,
-                      areaStyle: {},
-                      lineStyle: {
-                        width: 1
-                      },
-                      emphasis: {
-                        focus: 'series'
-                      },
-                      // prettier-ignore
-                      data: qa2
-                    }
-                  ]
-                };
- 
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+      var pa2 = ((pa2 | tojson));
+      var qa2 = ((qa2 | tojson));
+      var time_all = ((time_all | tojson));
+      // 指定图表的配置项和数据
+      option = {
+        title: {
+          text: '次级侧功率情况',
+          left: 'center'
+        },
+        grid: {
+          bottom: 80
+        },
+        toolbox: {
+          feature: {
+            dataZoom: {
+              yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross',
+            animation: false,
+            label: {
+              backgroundColor: '#505765'
+            }
+          }
+        },
+        legend: {
+          data: ['有功功率', '无功功率'],
+          left: 10
+        },
+        dataZoom: [
+          {
+            show: true,
+            realtime: true,
+            start: 65,
+            end: 85
+          },
+          {
+            type: 'inside',
+            realtime: true,
+            start: 65,
+            end: 85
+          }
+        ],
+        xAxis: [
+          {
+            type: 'category',
+            boundaryGap: false,
+            axisLine: { onZero: false },
+            // prettier-ignore
+            data: time_all
+          }
+        ],
+        yAxis: [
+          {
+            name: 'kW/1000',
+            type: 'value',
+            max: 250
+          },
+          {
+            name: 'kvar/1000',
+            nameLocation: 'start',
+            alignTicks: true,
+            type: 'value',
+            inverse: true,
+            max: 250
+          },
+        ],
+        series: [
+          {
+            name: '有功功率',
+            type: 'line',
+            color: '#0866c6',
+            areaStyle: {},
+            lineStyle: {
+              width: 1
+            },
+            emphasis: {
+              focus: 'series'
+            },
+            // prettier-ignore
+            data: pa2
+          },
+          {
+            name: '无功功率',
+            type: 'line',
+            color: '#f9243f',
+            yAxisIndex: 1,
+            areaStyle: {},
+            lineStyle: {
+              width: 1
+            },
+            emphasis: {
+              focus: 'series'
+            },
+            // prettier-ignore
+            data: qa2
+          }
+        ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
     </script>
     <script type="text/javascript">
       // 基于准备好的dom，初始化echarts实例
       var myChart = echarts.init(document.getElementById('main4'));
-      var pa1=((pa1|tojson));
-      var qa1=((qa1|tojson));
-      var time_all=((time_all|tojson));
+      var pa1 = ((pa1 | tojson));
+      var qa1 = ((qa1 | tojson));
+      var time_all = ((time_all | tojson));
       // 指定图表的配置项和数据
       option = {
-                title: {
-                  text: '初级侧功率情况',
-                  left: 'center'
-                },
-                grid: {
-                  bottom: 80
-                },
-                toolbox: {
-                  feature: {
-                    dataView: { show: true, readOnly: false },
-                    dataZoom: {
-                      yAxisIndex: 'none'
-                    },
-                    restore: {},
-                    saveAsImage: {}
-                  }
-                },
-                tooltip: {
-                  trigger: 'axis',
-                  axisPointer: {
-                    type: 'cross',
-                    animation: false,
-                    label: {
-                      backgroundColor: '#505765'
-                    }
-                  }
-                },
-                legend: {
-                  data: ['有功功率', '无功功率'],
-                  left: 10
-                },
-                dataZoom: [
-                  {
-                    show: true,
-                    realtime: true,
-                    start: 65,
-                    end: 85
-                  },
-                  {
-                    type: 'inside',
-                    realtime: true,
-                    start: 65,
-                    end: 85
-                  }
-                ],
-                xAxis: [
-                  {
-                    type: 'category',
-                    boundaryGap: false,
-                    axisLine: { onZero: false },
-                    // prettier-ignore
-                    data: time_all
-                  }
-                ],
-                yAxis: [
-                {
-                    name: 'kW/1000',
-                    type: 'value',
-                    max:250
-                  },
-                  {
-                    name: 'kvar/1000',
-                    nameLocation: 'start',
-                    alignTicks: true,
-                    type: 'value',
-                    inverse: true,
-                    max:250
-                  },
-                ],
-                series: [
-                  {
-                    name: '有功功率',
-                    type: 'line',
-                    color:'#0866c6',
-                    areaStyle: {},
-                    lineStyle: {
-                      width: 1
-                    },
-                    emphasis: {
-                      focus: 'series'
-                    },
-                    // prettier-ignore
-                    data: pa1
-                  },
-                  {
-                    name: '无功功率',
-                    type: 'line',
-                    color:'#f9243f',
-                    yAxisIndex: 1,
-                    areaStyle: {},
-                    lineStyle: {
-                      width: 1
-                    },
-                    emphasis: {
-                      focus: 'series'
-                    },
-                    // prettier-ignore
-                    data: qa1
-                  }
-                ]
-              };
+        title: {
+          text: '初级侧功率情况',
+          left: 'center'
+        },
+        grid: {
+          bottom: 80
+        },
+        toolbox: {
+          feature: {
+            dataView: { show: true, readOnly: false },
+            dataZoom: {
+              yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross',
+            animation: false,
+            label: {
+              backgroundColor: '#505765'
+            }
+          }
+        },
+        legend: {
+          data: ['有功功率', '无功功率'],
+          left: 10
+        },
+        dataZoom: [
+          {
+            show: true,
+            realtime: true,
+            start: 65,
+            end: 85
+          },
+          {
+            type: 'inside',
+            realtime: true,
+            start: 65,
+            end: 85
+          }
+        ],
+        xAxis: [
+          {
+            type: 'category',
+            boundaryGap: false,
+            axisLine: { onZero: false },
+            // prettier-ignore
+            data: time_all
+          }
+        ],
+        yAxis: [
+          {
+            name: 'kW/1000',
+            type: 'value',
+            max: 250
+          },
+          {
+            name: 'kvar/1000',
+            nameLocation: 'start',
+            alignTicks: true,
+            type: 'value',
+            inverse: true,
+            max: 250
+          },
+        ],
+        series: [
+          {
+            name: '有功功率',
+            type: 'line',
+            color: '#0866c6',
+            areaStyle: {},
+            lineStyle: {
+              width: 1
+            },
+            emphasis: {
+              focus: 'series'
+            },
+            // prettier-ignore
+            data: pa1
+          },
+          {
+            name: '无功功率',
+            type: 'line',
+            color: '#f9243f',
+            yAxisIndex: 1,
+            areaStyle: {},
+            lineStyle: {
+              width: 1
+            },
+            emphasis: {
+              focus: 'series'
+            },
+            // prettier-ignore
+            data: qa1
+          }
+        ]
+      };
 
       // 使用刚指定的配置项和数据显示图表。
       myChart.setOption(option);
-  </script>
-    <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main2'));
-        var pa1_adv=((pa1_adv|tojson));
-        var pa2_adv=((pa2_adv|tojson));
-        var qa1_adv=((qa1_adv|tojson));
-        var qa2_adv=((qa2_adv|tojson));
-        // 指定图表的配置项和数据
-        var option = {
-                      tooltip: {
-                        trigger: 'item'
-                      },
-                      legend: {
-                        top: '95%',
-                        left: 'center'
-                      },
-                      series: [
-                        {
-                          name: 'Access From',
-                          type: 'pie',
-                          radius: ['50%', '75%'],
-                          avoidLabelOverlap: false,
-                          itemStyle: {
-                            borderRadius: 10,
-                            borderColor: '#fff',
-                            borderWidth: 5
-                          },
-                          label: {
-                            show: false,
-                            position: 'center'
-                          },
-                          emphasis: {
-                            label: {
-                              show: true,
-                              fontSize: '30',
-                              fontWeight: 'bold'
-                            }
-                          },
-                          labelLine: {
-                            show: false
-                          },
-                          color:['#30a5ff','#ffb53e','#1ebfae','#f9243f','#73c0de','#3ba272','#fc8452','#9a60b4','#ea7ccc'],
-                          data: [
-                            { value: pa1_adv, name: '初级有功功率'},
-                            { value: pa2_adv, name: '次级有功功率' },
-                            { value: qa1_adv, name: '初级无功功率' },
-                            { value: qa2_adv, name: '次级无功功率' }
-                          ]
-                        }
-                      ]
-                    };
-
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
     </script>
     <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main3'));
-        var time=((time|tojson));
-        var ia1=((ia1|tojson));
-        var ia2=((ia2|tojson));
-        // 指定图表的配置项和数据
-        const colors = ['#0866c6', '#f9243f'];
-              option = {
-                color: colors,
-                tooltip: {
-                  trigger: 'none',
-                  axisPointer: {
-                    type: 'cross'
-                  }
-                },
-                legend: {},
-                grid: {
-                  top: 70,
-                  bottom: 50
-                },
-                xAxis: [
-                  {
-                    type: 'category',
-                    axisTick: {
-                      alignWithLabel: true
-                    },
-                    axisLine: {
-                      onZero: false,
-                      lineStyle: {
-                        color: colors[1]
-                      }
-                    },
-                    axisPointer: {
-                      label: {
-                        formatter: function (params) {
-                          return (
-                            'Precipitation  ' +
-                            params.value +
-                            (params.seriesData.length ? '：' + params.seriesData[0].data : '')
-                          );
-                        }
-                      }
-                    },
-                    // prettier-ignore
-                    data: time
-                  },
-                  {
-                    type: 'category',
-                    axisTick: {
-                      alignWithLabel: true
-                    },
-                    axisLine: {
-                      onZero: false,
-                      lineStyle: {
-                        color: colors[0]
-                      }
-                    },
-                    axisPointer: {
-                      label: {
-                        formatter: function (params) {
-                          return (
-                            'Precipitation  ' +
-                            params.value +
-                            (params.seriesData.length ? '：' + params.seriesData[0].data : '')
-                          );
-                        }
-                      }
-                    },
-                    // prettier-ignore
-                    data:time
-                  }
-                ],
-                yAxis: [
-                  {
-                    type: 'value',
-                    min:60
-                  }
-                ],
-                series: [
-                  {
-                    name: '初级电流',
-                    type: 'line',
-                    xAxisIndex: 1,
-                    smooth: true,
-                    emphasis: {
-                      focus: 'series'
-                    },
-                    data: ia1
-                  },
-                  {
-                    name: '次级电流',
-                    type: 'line',
-                    smooth: true,
-                    emphasis: {
-                      focus: 'series'
-                    },
-                    data: ia2
-                  }
-                ]
-              };
-              
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main2'));
+      var pa1_adv = ((pa1_adv | tojson));
+      var pa2_adv = ((pa2_adv | tojson));
+      var qa1_adv = ((qa1_adv | tojson));
+      var qa2_adv = ((qa2_adv | tojson));
+      // 指定图表的配置项和数据
+      var option = {
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: '95%',
+          left: 'center'
+        },
+        series: [
+          {
+            name: 'Access From',
+            type: 'pie',
+            radius: ['50%', '75%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 5
+            },
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: '30',
+                fontWeight: 'bold'
+              }
+            },
+            labelLine: {
+              show: false
+            },
+            color: ['#30a5ff', '#ffb53e', '#1ebfae', '#f9243f', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'],
+            data: [
+              { value: pa1_adv, name: '初级有功功率' },
+              { value: pa2_adv, name: '次级有功功率' },
+              { value: qa1_adv, name: '初级无功功率' },
+              { value: qa2_adv, name: '次级无功功率' }
+            ]
+          }
+        ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main3'));
+      var time = ((time | tojson));
+      var ia1 = ((ia1 | tojson));
+      var ia2 = ((ia2 | tojson));
+      // 指定图表的配置项和数据
+      const colors = ['#0866c6', '#f9243f'];
+      option = {
+        color: colors,
+        tooltip: {
+          trigger: 'none',
+          axisPointer: {
+            type: 'cross'
+          }
+        },
+        legend: {},
+        grid: {
+          top: 70,
+          bottom: 50
+        },
+        xAxis: [
+          {
+            type: 'category',
+            axisTick: {
+              alignWithLabel: true
+            },
+            axisLine: {
+              onZero: false,
+              lineStyle: {
+                color: colors[1]
+              }
+            },
+            axisPointer: {
+              label: {
+                formatter: function (params) {
+                  return (
+                    'Precipitation  ' +
+                    params.value +
+                    (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+                  );
+                }
+              }
+            },
+            // prettier-ignore
+            data: time
+          },
+          {
+            type: 'category',
+            axisTick: {
+              alignWithLabel: true
+            },
+            axisLine: {
+              onZero: false,
+              lineStyle: {
+                color: colors[0]
+              }
+            },
+            axisPointer: {
+              label: {
+                formatter: function (params) {
+                  return (
+                    'Precipitation  ' +
+                    params.value +
+                    (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+                  );
+                }
+              }
+            },
+            // prettier-ignore
+            data: time
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            min: 60
+          }
+        ],
+        series: [
+          {
+            name: '初级电流',
+            type: 'line',
+            xAxisIndex: 1,
+            smooth: true,
+            emphasis: {
+              focus: 'series'
+            },
+            data: ia1
+          },
+          {
+            name: '次级电流',
+            type: 'line',
+            smooth: true,
+            emphasis: {
+              focus: 'series'
+            },
+            data: ia2
+          }
+        ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
     </script>
 </body>
-</html>
 
+</html>

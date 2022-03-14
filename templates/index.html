@@ -16,11 +16,14 @@
     <!-- Google Fonts-->
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="static/assets/js/Lightweight-Chart/cssCharts.css"> 
+    <link rel="stylesheet" href="static/assets/js/Lightweight-Chart/cssCharts.css">
 </head>
 <style>
-    p {text-indent:2em;} 
-    </style>
+    p {
+        text-indent: 2em;
+    }
+</style>
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -62,12 +65,12 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="((url_for('index4')))" ><i class="fa fa-dashboard"></i>首页</a>
+                        <a class="active-menu" href="((url_for('index4')))"><i class="fa fa-dashboard"></i>首页</a>
                     </li>
                     <li>
                         <a href="((url_for('index_search')))"><i class="fa fa-desktop"></i>数据查询</a>
                     </li>
-					<li>
+                    <li>
                         <a href="((url_for('index3')))"><i class="fa fa-bar-chart-o"></i>后台数据</a>
                     </li>
                 </ul>
@@ -76,124 +79,128 @@
 
         </nav>
         <!-- /. NAV SIDE  -->
-      
-		<div id="page-wrapper">
-		  <div class="header"> 
-                        <h1 class="page-header">
-                            首页 <small>欢迎查看电表信息</small>
-                        </h1>
-						<ol class="breadcrumb">
-					  <li><a href="#">HOME</a></li>
-					  <li><a href="#">HOME PAGE</a></li>
-					  <li class="active">Page</li>
-					</ol> 
-									
-		</div>
+
+        <div id="page-wrapper">
+            <div class="header">
+                <h1 class="page-header">
+                    首页 <small>欢迎查看电表信息</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">HOME PAGE</a></li>
+                    <li class="active">Page</li>
+                </ol>
+
+            </div>
             <div id="page-inner">
 
                 <!-- /. ROW  -->
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <a href="#dianbiao">
-                        <div class="panel panel-primary text-center no-boder blue">
-                            <div class="panel-left pull-left blue">
-                                <i class="fa fa-eye fa-5x"></i>
-                                
+                            <div class="panel panel-primary text-center no-boder blue">
+                                <div class="panel-left pull-left blue">
+                                    <i class="fa fa-eye fa-5x"></i>
+
+                                </div>
+                                <div class="panel-right">
+                                    <h3>电表简介</h3>
+                                    <strong>INFORMATION</strong>
+                                </div>
                             </div>
-                            <div class="panel-right">
-								<h3>电表简介</h3>
-                                <strong>INFORMATION</strong>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <a href="http://www.nj-int.com.cn/server/selection.html">
-                        <div class="panel panel-primary text-center no-boder blue">
-                              <div class="panel-left pull-left blue">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-								</div>
-                                
-                            <div class="panel-right">
-							<h3>商品购买 </h3>
-                               <strong>PURCHASE</strong>
+                            <div class="panel panel-primary text-center no-boder blue">
+                                <div class="panel-left pull-left blue">
+                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                </div>
 
+                                <div class="panel-right">
+                                    <h3>商品购买 </h3>
+                                    <strong>PURCHASE</strong>
+
+                                </div>
                             </div>
-                        </div></a>
+                        </a>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <a href="((url_for('index3')))">
-                        <div class="panel panel-primary text-center no-boder blue">
-                            <div class="panel-left pull-left blue">
-                                <i class="fa fa fa-comments fa-5x"></i>
-                               
-                            </div>
-                            <div class="panel-right">
-							 <h3>后台数据 </h3>
-                               <strong> DATA </strong>
+                            <div class="panel panel-primary text-center no-boder blue">
+                                <div class="panel-left pull-left blue">
+                                    <i class="fa fa fa-comments fa-5x"></i>
 
+                                </div>
+                                <div class="panel-right">
+                                    <h3>后台数据 </h3>
+                                    <strong> DATA </strong>
+
+                                </div>
                             </div>
-                        </div></a>
+                        </a>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <a href="http://www.nj-int.com.cn/faq/catalog/21.html">
-                        <div class="panel panel-primary text-center no-boder blue">
-                            <div class="panel-left pull-left blue">
-                                <i class="fa fa-users fa-5x"></i>
-                                
-                            </div>
-                            <div class="panel-right">
-							<h3>技术支持 </h3>
-                             <strong>SUPPORT</strong>
+                            <div class="panel panel-primary text-center no-boder blue">
+                                <div class="panel-left pull-left blue">
+                                    <i class="fa fa-users fa-5x"></i>
 
+                                </div>
+                                <div class="panel-right">
+                                    <h3>技术支持 </h3>
+                                    <strong>SUPPORT</strong>
+
+                                </div>
                             </div>
-                        </div></a>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="panel panel-default"> 
-                                          
-							<div class="panel-heading">
-							基础数据展示
-						</div>
-						<div class="panel-body">
-							<div id="main" style="width: 100%;height:560px;"></div>
-						</div>
+                        <div class="panel panel-default">
+
+                            <div class="panel-heading">
+                                基础数据展示
+                            </div>
+                            <div class="panel-body">
+                                <div id="main" style="width: 100%;height:560px;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-				<div id="dianbiao"></div> 
-				<div class="row">	
-						<div class="col-md-12 col-sm-12 col-xs-12">
-					<div class="panel panel-default">
-					<div class="panel-heading">
-                        IDM30 系列智能数字测控仪表
+                <div id="dianbiao"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                IDM30 系列智能数字测控仪表
                             </div>
                             <div class="panel-body">
-                                <img src="static/image/dianbiao.jpeg"width='100%'/>
+                                <img src="static/image/dianbiao.jpeg" width='100%' />
                                 <p>IDM30智能数字测控仪表，是南京因泰莱电器股份有限公司仪表家族中的又一全新产品。其秉承了因泰莱的设计风格，外观设计精巧，功能强大，适用于各类行业的配电监控系统。IDM30仪表可对用电负荷的全电力参数实时监测，并且为客户提供了超大屏显示，在强大和大视角环境下都能获得良好的视觉效果。典型应用如下：
-                                电力监控：用于商业、工业和电力系统，对中低压系统内部的线路和负载进行远程的实时监控；能源管理：满足客户对电能分项计量和成本分摊的特殊需求；系统维护：电能质量分析、实时报警，便于维护人员快速排除故障。
-                                
+                                    电力监控：用于商业、工业和电力系统，对中低压系统内部的线路和负载进行远程的实时监控；能源管理：满足客户对电能分项计量和成本分摊的特殊需求；系统维护：电能质量分析、实时报警，便于维护人员快速排除故障。
+
                                 </p>
                                 <a href="static/IDM30ziliao.pdf">点击查看详细使用说明<i class="fa fa-arrow-circle-right"></i></a>
                             </div>
-						
-					</div>  
-					</div>
-					
-				</div> 
-			 
-				
+
+                        </div>
+                    </div>
+
+                </div>
+
+
                 <!-- /. ROW  -->
 
                 <!-- /. ROW  -->
-			
-		
-				<footer><p>All right reserved. Made by: <a href="#">Zhang Wenlong</a></p>
-				
-        
-				</footer>
+
+
+                <footer>
+                    <p>All right reserved. Made by: <a href="#">Zhang Wenlong</a></p>
+
+
+                </footer>
             </div>
             <!-- /. PAGE INNER  -->
         </div>
@@ -202,14 +209,14 @@
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-<script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
-    var time_20=((time_20|tojson));
-    var pa1_20=((pa1_20|tojson));
-    var pa2_20=((pa2_20|tojson));
-    // 指定图表的配置项和数据
-    option = {
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        var time_20 = ((time_20 | tojson));
+        var pa1_20 = ((pa1_20 | tojson));
+        var pa2_20 = ((pa2_20 | tojson));
+        // 指定图表的配置项和数据
+        option = {
             title: {
                 text: '近期功率展示',
                 subtext: '来自0号电表'
@@ -223,87 +230,87 @@
             toolbox: {
                 show: true,
                 feature: {
-                dataView: { show: true, readOnly: false },
-                magicType: { show: true, type: ['line', 'bar'] },
-                restore: { show: true },
-                saveAsImage: { show: true }
+                    dataView: { show: true, readOnly: false },
+                    magicType: { show: true, type: ['line', 'bar'] },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
                 }
             },
             calculable: true,
             xAxis: [
                 {
-                type: 'category',
-                // prettier-ignore
-                data: time_20,
-                name:'datetime'
+                    type: 'category',
+                    // prettier-ignore
+                    data: time_20,
+                    name: 'datetime'
                 }
             ],
             yAxis: [
                 {
-                type: 'value',
-                min:'60',
-                name:'kW/1000'
+                    type: 'value',
+                    min: '60',
+                    name: 'kW/1000'
                 }
             ],
             series: [
                 {
-                name: '初级有功功率',
-                type: 'bar',
-                data: pa1_20,
-                color:'#30a5ff',
-                markPoint: {
-                    data: [
-                    { type: 'max', name: 'Max' },
-                    { type: 'min', name: 'Min' }
-                    ]
-                },
-                markLine: {
-                    data: [{ type: 'average', name: 'Avg' }]
-                }
+                    name: '初级有功功率',
+                    type: 'bar',
+                    data: pa1_20,
+                    color: '#30a5ff',
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: 'Max' },
+                            { type: 'min', name: 'Min' }
+                        ]
+                    },
+                    markLine: {
+                        data: [{ type: 'average', name: 'Avg' }]
+                    }
                 },
                 {
-                name: '次级有功功率',
-                type: 'bar',
-                data: pa2_20,
-                color:'#0866c6',
-                markPoint: {
-                    data: [
-                    { type: 'max', name: 'Max' },
-                    { type: 'min', name: 'Min' }
-                    ]
-                },
-                markLine: {
-                    data: [{ type: 'average', name: 'Avg' }]
-                }
+                    name: '次级有功功率',
+                    type: 'bar',
+                    data: pa2_20,
+                    color: '#0866c6',
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: 'Max' },
+                            { type: 'min', name: 'Min' }
+                        ]
+                    },
+                    markLine: {
+                        data: [{ type: 'average', name: 'Avg' }]
+                    }
                 }
             ]
-            };
-          
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
     <script src="static/assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
     <script src="static/assets/js/bootstrap.min.js"></script>
-	 
+
     <!-- Metis Menu Js -->
     <script src="static/assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
     <script src="static/assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="static/assets/js/morris/morris.js"></script>
-	
-	
-	<script src="static/assets/js/easypiechart.js"></script>
-	<script src="static/assets/js/easypiechart-data.js"></script>
-	
-	 <script src="static/assets/js/Lightweight-Chart/jquery.chart.js"></script>
-	
+
+
+    <script src="static/assets/js/easypiechart.js"></script>
+    <script src="static/assets/js/easypiechart-data.js"></script>
+
+    <script src="static/assets/js/Lightweight-Chart/jquery.chart.js"></script>
+
     <!-- Custom Js -->
     <script src="static/assets/js/custom-scripts.js"></script>
 
-      <script>
-    
-      </script>
+    <script>
+
+    </script>
 
 </body>
 

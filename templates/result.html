@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-      <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap Admin Template : Insight</title>
-	<!-- Bootstrap Styles-->
+    <!-- Bootstrap Styles-->
     <link href="static/assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FontAwesome Styles-->
+    <!-- FontAwesome Styles-->
     <link href="static/assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- Custom Styles-->
+    <!-- Custom Styles-->
     <link href="static/assets/css/custom-styles.css" rel="stylesheet" />
-     <!-- Google Fonts-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-   <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
-   <link rel="stylesheet" href="static/assets/js/Lightweight-Chart/cssCharts.css">
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <link rel="stylesheet" href="static/assets/js/Lightweight-Chart/cssCharts.css">
 </head>
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -33,9 +35,9 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
-                <!-- /.dropdown -->
-                <!-- /.dropdown -->
-                <!-- /.dropdown -->
+                    <!-- /.dropdown -->
+                    <!-- /.dropdown -->
+                    <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -65,7 +67,7 @@
                     <li>
                         <a href="((url_for('index_search')))" class="active-menu"><i class="fa fa-desktop"></i>数据查询</a>
                     </li>
-					<li>
+                    <li>
                         <a href="((url_for('index3')))"><i class="fa fa-bar-chart-o"></i>后台数据</a>
                     </li>
                 </ul>
@@ -75,18 +77,18 @@
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
-		  <div class="header"> 
-                        <h1 class="page-header">
-                           数据查询 <small>支持自定义查看后台数据</small>
-                        </h1>
-						<ol class="breadcrumb">
-					  <li><a href="#">HOME</a></li>
-					  <li><a href="#">DATA QUERY</a></li>
-					  <li class="active">Page</li>
-					</ol> 
-									
-		</div>
-            <div id="page-inner"> 
+            <div class="header">
+                <h1 class="page-header">
+                    数据查询 <small>支持自定义查看后台数据</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">DATA QUERY</a></li>
+                    <li class="active">Page</li>
+                </ol>
+
+            </div>
+            <div id="page-inner">
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="panel panel-default">
@@ -97,12 +99,14 @@
                                 <div class="alert alert-info">
                                     <strong>请注意！</strong>输入下表全部所需数据后方可查找
                                 </div>
-                                <form action="http://localhost:5000/result" method = "POST">
+                                <form action="http://localhost:5000/result" method="POST">
                                     <label>电表编号</label>
-                                    <input class="form-control" type="text" placeholder="请输入需要对应的编号"value="0" name="id"/>
+                                    <input class="form-control" type="text" placeholder="请输入需要对应的编号" value="0"
+                                        name="id" />
                                     <br>
                                     <label>查询地址</label>
-                                    <input class="form-control" type="text"list="typelist" placeholder="请输入需要对应的地址"name="addr"/>
+                                    <input class="form-control" type="text" list="typelist" placeholder="请输入需要对应的地址"
+                                        name="addr" />
                                     <datalist id="typelist">
                                         <option>0</option>
                                         <option>8</option>
@@ -117,18 +121,20 @@
                                     </datalist>
                                     <br>
                                     <label>起始时间</label>
-                                    <input class="form-control"type="datetime-local" name="startdate"value="2022-03-04T08:30"/>
+                                    <input class="form-control" type="datetime-local" name="startdate"
+                                        value="2022-03-04T08:30" />
                                     <br>
                                     <label>终止时间</label>
-                                    <input class="form-control"type="datetime-local" name="enddate"value="2022-03-18T08:30" />
+                                    <input class="form-control" type="datetime-local" name="enddate"
+                                        value="2022-03-18T08:30" />
                                     <br>
                                     <br>
                                     <br>
                                     <br>
                                     <br>
-                                    <input class="btn btn-primary " type="submit"  value="&nbsp查询结果&nbsp" />
+                                    <input class="btn btn-primary " type="submit" value="&nbsp查询结果&nbsp" />
                                     <button type="reset" class="btn btn-default pull-right">刷新默认值</button>
-                                </form> 
+                                </form>
                             </div>
                         </div>
 
@@ -138,7 +144,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 支持查询的数据编号
-                            </div> 
+                            </div>
                             <div class="panel-body">
                                 <div class="alert alert-info">
                                     <strong>请检查表格：</strong>当前版本数据库支持的查询项目
@@ -224,102 +230,103 @@
                     </div>
 
 
-            </div> 
-				<div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    查询结果
-                                </div>
-                                <div class="panel-body">
-                                    <div id="main" style="width: 100%;height:600px;"></div> 
-                                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                查询结果
                             </div>
-    
+                            <div class="panel-body">
+                                <div id="main" style="width: 100%;height:600px;"></div>
+                            </div>
                         </div>
-                </div> 							
-								
+
+                    </div>
+                </div>
+
                 <!-- /. ROW  -->
-                 <!-- /. ROW  -->
                 <!-- /. ROW  -->
-                <footer><p>All right reserved. Made by: <a href="#">Zhang Wenlong</a></p>
-				</div>
-             <!-- /. PAGE INNER  -->
+                <!-- /. ROW  -->
+                <footer>
+                    <p>All right reserved. Made by: <a href="#">Zhang Wenlong</a></p>
             </div>
-         <!-- /. PAGE WRAPPER  -->
+            <!-- /. PAGE INNER  -->
         </div>
-     <!-- /. WRAPPER  -->
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
-        var value=((value|tojson));
-        var time=((time|tojson));
+        var value = ((value | tojson));
+        var time = ((time | tojson));
         option = {
-        tooltip: {
-            trigger: 'axis',
-            position: function (pt) {
-            return [pt[0], '10%'];
-            }
-        },
-        title: {
-            left: 'center',
-            text: '查询结果'
-        },
-        toolbox: {
-            feature: {
-            dataView: { show: true, readOnly: false },
-            dataZoom: {
-                yAxisIndex: 'none'
+            tooltip: {
+                trigger: 'axis',
+                position: function (pt) {
+                    return [pt[0], '10%'];
+                }
             },
-            restore: {},
-            saveAsImage: {}
-            }
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: time
-        },
-        yAxis: {
-            type: 'value',
-            boundaryGap: [0, '100%']
-        },
-        dataZoom: [
-            {
-            type: 'inside',
-            start: 0,
-            end: 10
+            title: {
+                left: 'center',
+                text: '查询结果'
             },
-            {
-            start: 0,
-            end: 10
-            }
-        ],
-        series: [
-            {
-            name: '值',
-            type: 'line',
-            symbol: 'none',
-            sampling: 'lttb',
-            itemStyle: {
-                color: '#0866c6'
+            toolbox: {
+                feature: {
+                    dataView: { show: true, readOnly: false },
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                }
             },
-            areaStyle: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: time
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, '100%']
+            },
+            dataZoom: [
                 {
-                    offset: 0,
-                    color: '#30a5ff'
+                    type: 'inside',
+                    start: 0,
+                    end: 10
                 },
                 {
-                    offset: 1,
-                    color: '#30a5ff'
+                    start: 0,
+                    end: 10
                 }
-                ])
-            },
-            data: value
-            }
-        ]
+            ],
+            series: [
+                {
+                    name: '值',
+                    type: 'line',
+                    symbol: 'none',
+                    sampling: 'lttb',
+                    itemStyle: {
+                        color: '#0866c6'
+                    },
+                    areaStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            {
+                                offset: 0,
+                                color: '#30a5ff'
+                            },
+                            {
+                                offset: 1,
+                                color: '#30a5ff'
+                            }
+                        ])
+                    },
+                    data: value
+                }
+            ]
         };
 
         // 使用刚指定的配置项和数据显示图表。
@@ -327,15 +334,14 @@
     </script>
     <!-- jQuery Js -->
     <script src="static/assets/js/jquery-1.10.2.js"></script>
-      <!-- Bootstrap Js -->
+    <!-- Bootstrap Js -->
     <script src="static/assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
     <script src="static/assets/js/jquery.metisMenu.js"></script>
-      <!-- Custom Js -->
+    <!-- Custom Js -->
     <script src="static/assets/js/custom-scripts.js"></script>
- 
+
 </body>
+
 </html>
-    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    
-    
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
