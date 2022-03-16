@@ -3,7 +3,7 @@ import json
 import datetime
 import time
 import flask
-from flask import Flask, Response, request,session,redirect,url_for,make_response
+from flask import Flask, Response, request, session, redirect, url_for, make_response
 from flask import render_template
 from mysql import Mysql
 import threading
@@ -23,27 +23,49 @@ app = Flask(__name__)
 app.jinja_env.variable_start_string = '(('  # 修改变量开始符号
 app.jinja_env.variable_end_string = '))'  # 修改变量结束符号
 app.secret_key = 'fkdjsafjdklkjfadskjfadskljdsfklj'
+
+
 @app.route("/")
 def index():
     return render_template('index_reg.html')
-@app.route("/denglu",methods=['GET','POST'])
+
+
+@app.route("/denglu", methods=['GET', 'POST'])
 def indexx():
-    pd=pwd()
-    if request.method=='POST':
+    pd = pwd()
+    if request.method == 'POST':
         print("收到了消息")
         print(request.form.get("name"))
         print(request.form.get("password"))
-        namee=str(request.form.get("name"))
-        pwd_insert=str(request.form.get("password"))
-        if pd.password_check(namee,pwd_insert):
-            session['username']=request.form.get("name")
+        namee = str(request.form.get("name"))
+        pwd_insert = str(request.form.get("password"))
+        if pd.password_check(namee, pwd_insert):
+            session['username'] = request.form.get("name")
             print('可以登录')
             return redirect(url_for('index4'))
     return redirect(url_for('index'))
+
+
 @app.route('/logout')
 def logout():
     session.pop('username', None)
     return redirect(url_for('index'))
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    pd = pwd()
+    if request.method == 'POST':
+        print(request.form.get("email"))
+        if pd.password_notsame(request.form.get("name")):
+            print("没有重复")
+            pd.password_register(request.form.get("name"), request.form.get(
+                "password"), request.form.get("email"))
+            return redirect(url_for('index'))
+        else:
+            return render_template('register.html', mess='用户名已存在，换一个吧')
+    return render_template('register.html', mess='注册')
+
 
 @app.route("/result", methods=['GET', 'POST'])
 def index2():
@@ -110,6 +132,7 @@ def index3():
     else:
         return redirect(url_for('index'))
 
+
 @app.route("/main")
 def index4():
     if 'username' in session:
@@ -146,7 +169,7 @@ def index_search():
     if 'username' in session:
         return render_template('ui-elements.html')
     else:
-        return redirect(url_for('index')) 
+        return redirect(url_for('index'))
 
 
 def web():

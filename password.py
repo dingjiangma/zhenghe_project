@@ -32,9 +32,9 @@ class pwd(object):
 
     def password_check(self, namee, pwd_insert):
         sql = """SELECT pwd from pwd where name = %s """
-        self.cursor.execute(sql,pymysql.converters.escape_string(namee))
+        self.cursor.execute(sql, pymysql.converters.escape_string(namee))
         pwd_hash = self.cursor.fetchone()
-        if pwd_hash==None:
+        if pwd_hash == None:
             print("用户不存在")
             return False
         result = check_password_hash(pwd_hash[0], pwd_insert)
