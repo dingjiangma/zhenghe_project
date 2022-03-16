@@ -3,11 +3,12 @@ import json
 import datetime
 import time
 import flask
-from flask import Flask, Response, request
+from flask import Flask, Response, request,session,redirect,url_for,make_response
 from flask import render_template
 from mysql import Mysql
 import threading
 from numpy import *
+from password import pwd
 
 
 class DateEncoder(json.JSONEncoder):
@@ -21,12 +22,28 @@ class DateEncoder(json.JSONEncoder):
 app = Flask(__name__)
 app.jinja_env.variable_start_string = '(('  # 修改变量开始符号
 app.jinja_env.variable_end_string = '))'  # 修改变量结束符号
-
-
+app.secret_key = 'fkdjsafjdklkjfadskjfadskljdsfklj'
 @app.route("/")
 def index():
-    return render_template('search.html')
-
+    return render_template('index_reg.html')
+@app.route("/denglu",methods=['GET','POST'])
+def indexx():
+    pd=pwd()
+    if request.method=='POST':
+        print("收到了消息")
+        print(request.form.get("name"))
+        print(request.form.get("password"))
+        namee=str(request.form.get("name"))
+        pwd_insert=str(request.form.get("password"))
+        if pd.password_check(namee,pwd_insert):
+            session['username']=request.form.get("name")
+            print('可以登录')
+            return redirect(url_for('index4'))
+    return redirect(url_for('index'))
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('index'))
 
 @app.route("/result", methods=['GET', 'POST'])
 def index2():
@@ -90,29 +107,33 @@ def index3():
 
 @app.route("/main")
 def index4():
-    db = Mysql()
-    pa1 = [26, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    pa2 = [38, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    qa1 = [30, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    qa2 = [42, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    pa1_value = db.trans_value(db.getItems(pa1))
-    pa1_adv = mean(pa1_value)
-    pa2_value = db.trans_value(db.getItems(pa2))
-    pa2_adv = mean(pa2_value)
-    qa1_value = db.trans_value(db.getItems(qa1))
-    qa1_adv = mean(qa1_value)
-    qa2_value = db.trans_value(db.getItems(qa2))
-    qa2_adv = mean(qa2_value)
-    lenth = len(qa2_value)
-    time = db.trans_time(db.getItems(qa1))
-    ia1 = [16, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    ia2 = [21, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    ia1_value = db.trans_value(db.getItems(ia1))
-    pa1_value_20 = pa1_value[-10:-1]
-    ia2_value = db.trans_value(db.getItems(ia2))
-    pa2_value_20 = pa2_value[-10:-1]
-    time_20 = time[-10:-1]
-    return render_template('index.html', pa1_adv=pa1_adv, pa2_adv=pa2_adv, qa1_adv=qa1_adv, qa2_adv=qa2_adv, time_20=time_20, pa1_20=pa1_value_20, pa2_20=pa2_value_20)
+    if 'username' in session:
+        print(session['username'])
+        db = Mysql()
+        pa1 = [26, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        pa2 = [38, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        qa1 = [30, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        qa2 = [42, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        pa1_value = db.trans_value(db.getItems(pa1))
+        pa1_adv = mean(pa1_value)
+        pa2_value = db.trans_value(db.getItems(pa2))
+        pa2_adv = mean(pa2_value)
+        qa1_value = db.trans_value(db.getItems(qa1))
+        qa1_adv = mean(qa1_value)
+        qa2_value = db.trans_value(db.getItems(qa2))
+        qa2_adv = mean(qa2_value)
+        lenth = len(qa2_value)
+        time = db.trans_time(db.getItems(qa1))
+        ia1 = [16, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        ia2 = [21, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        ia1_value = db.trans_value(db.getItems(ia1))
+        pa1_value_20 = pa1_value[-10:-1]
+        ia2_value = db.trans_value(db.getItems(ia2))
+        pa2_value_20 = pa2_value[-10:-1]
+        time_20 = time[-10:-1]
+        return render_template('index.html', pa1_adv=pa1_adv, pa2_adv=pa2_adv, qa1_adv=qa1_adv, qa2_adv=qa2_adv, time_20=time_20, pa1_20=pa1_value_20, pa2_20=pa2_value_20)
+    else:
+        return redirect(url_for('index'))
 
 
 @app.route("/search")

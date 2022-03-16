@@ -1,4 +1,5 @@
 import pymysql
+from sqlalchemy import false
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -33,10 +34,14 @@ class pwd(object):
         sql = """SELECT pwd from pwd where name = %s """
         self.cursor.execute(sql,pymysql.converters.escape_string(namee))
         pwd_hash = self.cursor.fetchone()
-        print(pwd_hash[0])
+        if pwd_hash==None:
+            print("用户不存在")
+            return False
         result = check_password_hash(pwd_hash[0], pwd_insert)
         if result:
             print("密码正确")
+        else:
+            print("密码错误")
         return result
 
     def password_notsame(self, name):
