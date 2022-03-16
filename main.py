@@ -47,63 +47,68 @@ def logout():
 
 @app.route("/result", methods=['GET', 'POST'])
 def index2():
-    db = Mysql()
-    if request.method == 'POST':
-        startdate = request.form.get("startdate")
-        start_list = startdate.split("T")
-        starttime = start_list[0] + ' ' + start_list[1] + ':00'
-        enddate = request.form.get("enddate")
-        end_list = enddate.split("T")
-        endtime = end_list[0] + ' ' + end_list[1] + ':00'
-        addr = str(request.form.get("addr"))
-    mess = []
-    mess = [addr, starttime, endtime]
-    print(mess)
-    items = db.getItems(mess)
-    iit = list(items)
-    value = []
-    for i in range(0, len(iit)):
-        value.append(items[i][0])
-    # print(value)
-    time = []
-    for i in range(0, len(iit)):
-        time.append(items[i][1])
-    # print(time)
-    time_change = []
-    for tim in time:
-        time_change.append(tim.strftime("%Y-%m-%d %H:%M:%S"))
-    # print(time_change)
-    return render_template('result.html', value=value, time=time_change)
+    if 'username' in session:
+        db = Mysql()
+        if request.method == 'POST':
+            startdate = request.form.get("startdate")
+            start_list = startdate.split("T")
+            starttime = start_list[0] + ' ' + start_list[1] + ':00'
+            enddate = request.form.get("enddate")
+            end_list = enddate.split("T")
+            endtime = end_list[0] + ' ' + end_list[1] + ':00'
+            addr = str(request.form.get("addr"))
+        mess = []
+        mess = [addr, starttime, endtime]
+        print(mess)
+        items = db.getItems(mess)
+        iit = list(items)
+        value = []
+        for i in range(0, len(iit)):
+            value.append(items[i][0])
+        # print(value)
+        time = []
+        for i in range(0, len(iit)):
+            time.append(items[i][1])
+        # print(time)
+        time_change = []
+        for tim in time:
+            time_change.append(tim.strftime("%Y-%m-%d %H:%M:%S"))
+        # print(time_change)
+        return render_template('result.html', value=value, time=time_change)
+    else:
+        return redirect(url_for('index'))
 
 
 @app.route("/charts")
 def index3():
-    db = Mysql()
-    pa1 = [26, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    pa2 = [38, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    qa1 = [30, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    qa2 = [42, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    pa1_value = db.trans_value(db.getItems(pa1))
-    pa1_adv = mean(pa1_value)
-    pa2_value = db.trans_value(db.getItems(pa2))
-    pa2_adv = mean(pa2_value)
-    qa1_value = db.trans_value(db.getItems(qa1))
-    qa1_adv = mean(qa1_value)
-    qa2_value = db.trans_value(db.getItems(qa2))
-    qa2_adv = mean(qa2_value)
-    lenth = len(qa2_value)
-    time = db.trans_time(db.getItems(qa1))
-    ia1 = [16, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    ia2 = [21, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
-    ia1_value = db.trans_value(db.getItems(ia1))
-    ia1_value = ia1_value[-41:-1]
-    ia2_value = db.trans_value(db.getItems(ia2))
-    ia2_value = ia2_value[-41:-1]
-    time_20 = time[-41:-1]
+    if 'username' in session:
+        db = Mysql()
+        pa1 = [26, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        pa2 = [38, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        qa1 = [30, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        qa2 = [42, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        pa1_value = db.trans_value(db.getItems(pa1))
+        pa1_adv = mean(pa1_value)
+        pa2_value = db.trans_value(db.getItems(pa2))
+        pa2_adv = mean(pa2_value)
+        qa1_value = db.trans_value(db.getItems(qa1))
+        qa1_adv = mean(qa1_value)
+        qa2_value = db.trans_value(db.getItems(qa2))
+        qa2_adv = mean(qa2_value)
+        lenth = len(qa2_value)
+        time = db.trans_time(db.getItems(qa1))
+        ia1 = [16, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        ia2 = [21, '2022-03-11 15:45:00', '2022-03-30 15:45:00']
+        ia1_value = db.trans_value(db.getItems(ia1))
+        ia1_value = ia1_value[-41:-1]
+        ia2_value = db.trans_value(db.getItems(ia2))
+        ia2_value = ia2_value[-41:-1]
+        time_20 = time[-41:-1]
 
-    print(ia2_value)
-    return render_template('chart.html', pa1_adv=pa1_adv, pa2_adv=pa2_adv, qa1_adv=qa1_adv, qa2_adv=qa2_adv, time=time_20, ia1=ia1_value, ia2=ia2_value, time_all=time, pa2=pa2_value, qa2=qa2_value, pa1=pa1_value, qa1=qa1_value)
-
+        print(ia2_value)
+        return render_template('chart.html', pa1_adv=pa1_adv, pa2_adv=pa2_adv, qa1_adv=qa1_adv, qa2_adv=qa2_adv, time=time_20, ia1=ia1_value, ia2=ia2_value, time_all=time, pa2=pa2_value, qa2=qa2_value, pa1=pa1_value, qa1=qa1_value)
+    else:
+        return redirect(url_for('index'))
 
 @app.route("/main")
 def index4():
@@ -138,7 +143,10 @@ def index4():
 
 @app.route("/search")
 def index_search():
-    return render_template('ui-elements.html')
+    if 'username' in session:
+        return render_template('ui-elements.html')
+    else:
+        return redirect(url_for('index')) 
 
 
 def web():
